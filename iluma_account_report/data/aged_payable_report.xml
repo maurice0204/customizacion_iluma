@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="account_reports.aged_payable_report" model="account.report">
+            <field name="column_ids">
+                <record id="aged_payable_report_accounting_date" model="account.report.column">
+                    <field name="name">Accounting Date</field>
+                    <field name="expression_label">accounting_date</field>
+                    <field name="figure_type">date</field>
+                    <field name="sortable" eval="True"/>
+                    <field name="sequence">1</field>
+                </record>
+            </field>
+            <field name="line_ids">
+                <record id="account_reports.aged_payable_line" model="account.report.line">
+                    <field name="expression_ids">
+                        <record id="aged_payable_line_accounting_date" model="account.report.expression">
+                            <field name="label">accounting_date</field>
+                            <field name="engine">custom</field>
+                            <field name="formula">_report_custom_engine_aged_payable</field>
+                            <field name="subformula">accounting_date</field>
+                            <field name="auditable" eval="False"/>
+                        </record>
+                    </field>
+                </record>
+            </field>
+        </record>
+
+        <record id="account_reports.aged_receivable_report" model="account.report">
+            <field name="column_ids">
+                <record id="aged_receivable_report_accounting_date" model="account.report.column">
+                    <field name="name">Accounting Date</field>
+                    <field name="expression_label">accounting_date</field>
+                    <field name="figure_type">date</field>
+                    <field name="sortable" eval="True"/>
+                    <field name="sequence">1</field>
+                </record>
+            </field>
+            <field name="line_ids">
+                <record id="account_reports.aged_receivable_line" model="account.report.line">
+                    <field name="expression_ids">
+                        <record id="aged_receivable_line_accounting_date" model="account.report.expression">
+                            <field name="label">accounting_date</field>
+                            <field name="engine">custom</field>
+                            <field name="formula">_report_custom_engine_aged_receivable</field>
+                            <field name="subformula">accounting_date</field>
+                            <field name="auditable" eval="False"/>
+                        </record>
+                    </field>
+                </record>
+            </field>
+        </record>
+    </data>
+</odoo>
